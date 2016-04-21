@@ -13,17 +13,16 @@
         </tr>
         </thead>
         <tbody>
-            {{melon_type_list}}
-<!--         {% for melon in melon_type_list %}
+            {% for melon in melon_qty.keys() %}
 
         <tr>
             <td>{{melon.common_name}}</td>
-            <td>5</td>
+            <td>{{melon_qty[melon]}}</td>
             <td>{{melon.price}}</td>
-            <td>5</td>
+            <td>{{melon_qty[melon] * melon.price}}</td>
         </tr>
-        {% endfor %} -->
-       <!--  <tr>
+        {% endfor %}
+        <!-- <tr>
             <td>Charleston Gray</td>
             <td>2</td>
             <td>$2.00</td>
@@ -44,7 +43,7 @@
         </tbody>
     </table>
 
-    <h3>Total: $27.00</h3>
+    <h3>${{order_total}}</h3>
 
     <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
 

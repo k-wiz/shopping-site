@@ -62,13 +62,21 @@ def shopping_cart():
     print "IN THE SHOPPING CArt function \n\n\n"
 
     order_total = 0
-    melon_type_list = []
+    #melon_type_list = []
+    melon_qty = {}
 
 
     for melon_id in session["cart"]:
-        melon = get_by_id(melon_id)
-        melon_type_list.append(melon)
+        melon = melons.get_by_id(melon_id)
+        #melon_type_list.append(melon)
+        melon_qty[melon]= melon_qty.get(melon, 0) + 1
+        print melon_qty[melon]
+        order_total += melon.price
 
+
+    order_total = ("%.2f" % order_total)
+    print order_total
+    print melon_qty
     print "#########################################################\n\n\n"
     print "this is the ", session["cart"]
     print "#########################################################\n\n\n"
@@ -89,7 +97,7 @@ def shopping_cart():
     #   - keep track of the total amt of the entire order
     # - hand to the template the total order cost and the list of melon types
 
-    return render_template("cart.html", melon_type_list=melon_type_list)
+    return render_template("cart.html", melon_qty=melon_qty, order_total=order_total)
 
 
 @app.route("/add_to_cart/<int:id>")
@@ -114,7 +122,7 @@ def add_to_cart(id):
 
     flash("Your melon has been added to the cart!")
 
-    return render_template("cart.html")
+    return redirect("/cart")
 
     #return "Oops! This needs to be implemented!"
 
