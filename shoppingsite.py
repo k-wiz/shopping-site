@@ -7,7 +7,7 @@ Authors: Joel Burton, Christian Fernandez, Meggie Mahnken.
 """
 
 
-from flask import Flask, render_template, redirect, flash, session
+from flask import Flask, render_template, redirect, flash, session, request
 import jinja2
 
 import melons
@@ -70,7 +70,7 @@ def shopping_cart():
         melon = melons.get_by_id(melon_id)
         #melon_type_list.append(melon)
         melon_qty[melon]= melon_qty.get(melon, 0) + 1
-        print melon_qty[melon]
+        #print melon_qty[melon]
         order_total += melon.price
 
 
@@ -143,7 +143,10 @@ def process_login():
     """
 
     # TODO: Need to implement this!
-
+    email = request.form.get("email")
+    print email
+    password = request.form.get("password")
+    print password
     return "Oops! This needs to be implemented"
 
 

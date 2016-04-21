@@ -18,10 +18,11 @@
             <tr>
                 <td>{{melon.common_name}}</td>
                 <td>{{melon_qty[melon]}}</td>
-                <td>${{melon.price}}</td>
-                <td>${{melon_qty[melon] * melon.price}}</td>
+                <td>{{melon.price_str()}}</td>
+                <td>{{'${0:0.2f}'.format(melon_qty[melon] * melon.price)}}</td>
             </tr>
         {% endfor %}
+ 
         <!-- <tr>
             <td>Charleston Gray</td>
             <td>2</td>
