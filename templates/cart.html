@@ -13,14 +13,14 @@
         </tr>
         </thead>
         <tbody>
-            {% for melon in melon_qty.keys() %}
+        {% for melon in melon_qty.keys() %}
 
-        <tr>
-            <td>{{melon.common_name}}</td>
-            <td>{{melon_qty[melon]}}</td>
-            <td>{{melon.price}}</td>
-            <td>{{melon_qty[melon] * melon.price}}</td>
-        </tr>
+            <tr>
+                <td>{{melon.common_name}}</td>
+                <td>{{melon_qty[melon]}}</td>
+                <td>${{melon.price}}</td>
+                <td>${{melon_qty[melon] * melon.price}}</td>
+            </tr>
         {% endfor %}
         <!-- <tr>
             <td>Charleston Gray</td>

@@ -75,11 +75,11 @@ def shopping_cart():
 
 
     order_total = ("%.2f" % order_total)
-    print order_total
-    print melon_qty
-    print "#########################################################\n\n\n"
-    print "this is the ", session["cart"]
-    print "#########################################################\n\n\n"
+    # print order_total
+    # print melon_qty
+    # print "#########################################################\n\n\n"
+    # print "this is the ", session["cart"]
+    # print "#########################################################\n\n\n"
 
         # name = melon.common_name
         # quantity = 0
@@ -118,7 +118,7 @@ def add_to_cart(id):
         session["cart"] = []
     session["cart"].append(id)
 
-    print session["cart"]
+    #print session["cart"]
 
     flash("Your melon has been added to the cart!")
 
